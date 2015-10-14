@@ -6,7 +6,7 @@ pub trait Worker {
     fn next(&mut self);
 }
 
-impl<F> Worker for F where F: FnMut(), F: Sync + Send {
+impl<F> Worker for F where F: FnMut() {
     fn next(&mut self) { self() }
 }
 
